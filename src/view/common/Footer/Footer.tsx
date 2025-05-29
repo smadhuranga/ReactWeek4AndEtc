@@ -1,10 +1,10 @@
 export function Footer() {
     return (
-        <footer className="bg-[#2d2d2d] text-white py-16 px-8 mt-auto">
+        <footer className="bg-[#2d2d2d] text-white !py-16 !px-8 mt-auto">
             <div className=" max-w-[98vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#444]">
                 {/* About Us Section */}
-                <div className="px-4">
-                    <h4 className="text-white text-xl mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
+                <div className="!px-4">
+                    <h4 className="text-white text-xl !mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
                         About Us
                     </h4>
                     <p className="text-[#ccc] text-sm leading-relaxed">
@@ -14,7 +14,7 @@ export function Footer() {
 
                 {/* Quick Links Section */}
                 <div className="px-4">
-                    <h4 className="text-white text-xl mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
+                    <h4 className="text-white text-xl !mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
                         Quick Links
                     </h4>
                     <ul className="list-none p-0">
@@ -25,8 +25,8 @@ export function Footer() {
                 </div>
 
                 {/* Follow Us Section */}
-                <div className="px-4">
-                    <h4 className="text-white text-xl mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
+                <div className="!px-4">
+                    <h4 className="text-white text-xl !mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
                         Follow Us
                     </h4>
                     <div className="flex gap-4">
@@ -39,7 +39,7 @@ export function Footer() {
 
                 {/* Newsletter Section */}
                 <div className="px-4">
-                    <h4 className="text-white text-xl mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
+                    <h4 className="text-white text-xl !mb-6 uppercase relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50px] after:h-[2px] after:bg-[#00ff88]">
                         Newsletter
                     </h4>
                     <form className="flex flex-col gap-2">
@@ -50,7 +50,7 @@ export function Footer() {
                         />
                         <button
                             type="submit"
-                            className="py-2 px-6 bg-[#00ff88] text-[#2d2d2d] border-none rounded font-bold cursor-pointer hover:bg-[#00cc6a] transition-colors duration-300"
+                            className="!py-2 !px-6 bg-[#00ff88] text-[#2d2d2d] border-none rounded font-bold cursor-pointer hover:bg-[#00cc6a] transition-colors duration-300"
                         >
                             Subscribe
                         </button>

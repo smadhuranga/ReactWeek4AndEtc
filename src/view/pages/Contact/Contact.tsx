@@ -28,7 +28,7 @@ export function Contact() {
                     We'd love to hear from you
                 </p>
 
-                <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+                <form className="flex flex-col !gap-6" onSubmit={handleSubmit(onSubmit)}>
                     {/* Name Field */}
                     <div className="relative">
                         <input
