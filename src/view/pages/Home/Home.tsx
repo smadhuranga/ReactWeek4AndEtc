@@ -1,7 +1,101 @@
+
+import {useEffect, useState} from "react";
+import {Product} from "../../common/Product/Product.tsx";
+
+
 export function Home() {
+
+    const [products, setProducts] = useState([]);
+
+
+    useEffect(
+        () => {
+            const fetchData = async ()=>{
+              try {
+                  const response =  await fetch('./product-data.json')
+                  const jsonData = await response.json();
+                  // console.log(jsonData);
+                  setProducts(jsonData);
+                  console.log(products)
+              }catch (error) {
+                  console.error("Error fetching data: ", error);
+              }
+
+
+            }
+            fetchData();
+        } , []
+    )
+
     return (
-        <>
-            <h1> This is a Home</h1>
-        </>
+        <div>
+            <div className=" flex  flex-wrap ml-[1px] mt-5 mb-5 justify-center items-center gap-4">
+
+                {
+                    products.map((product) => (
+                        <Product data={product}/>
+                    ))
+                }
+
+                {/*<div*/}
+                {/*    className="w-110 h-112 bg-blue-900 mr-2 mb-2 flex flex-col items-center border-1 rounded-2xl ">*/}
+                {/*    <div>*/}
+                {/*        <img className="h-[200px] w-[165px] !m-8" src={product1} alt=""/>*/}
+                {/*    </div>*/}
+                {/*    <h2>*/}
+                {/*        Pc1*/}
+                {/*    </h2>*/}
+                {/*    <h3*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500   self-end !mr-16.5 rounded-2xl !p-2 !m-2 ">*/}
+                {/*        LKR 500*/}
+                {/*    </h3>*/}
+                {/*    <button*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500 h-[50px] w-[370px] rounded-2xl cursor-pointer hover:scale-105 transition duration-300 hover:shadow-cyan-300">*/}
+                {/*        Add to cart*/}
+                {/*    </button>*/}
+
+                {/*</div>*/}
+
+                {/*<div*/}
+                {/*    className="w-110 h-112 bg-blue-900 mr-2 mb-2 flex flex-col items-center border-1 rounded-2xl ">*/}
+                {/*    <div>*/}
+                {/*        <img className="h-[200px] w-[265px] !m-8" src={product2} alt=""/>*/}
+                {/*    </div>*/}
+                {/*    <h2>*/}
+                {/*        pc2*/}
+                {/*    </h2>*/}
+                {/*    <h3*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500   self-end !mr-16.5 rounded-2xl !p-2 !m-2 ">*/}
+                {/*        LKR 500*/}
+                {/*    </h3>*/}
+                {/*    <button*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500 h-[50px] w-[370px] rounded-2xl cursor-pointer hover:scale-105 transition duration-300 hover:shadow-cyan-300">*/}
+                {/*        Add to cart*/}
+                {/*    </button>*/}
+
+                {/*</div>*/}
+
+                {/*<div*/}
+                {/*    className="w-110 h-112 bg-blue-900 mr-2 mb-2 flex flex-col items-center border-1 rounded-2xl ">*/}
+                {/*    <div>*/}
+                {/*        <img className="h-[200px] w-[285px] !m-8" src={product} alt=""/>*/}
+                {/*    </div>*/}
+                {/*    <h2>*/}
+                {/*        pc3*/}
+                {/*    </h2>*/}
+                {/*    <h3*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500   self-end !mr-16.5 rounded-2xl !p-2 !m-2 ">*/}
+                {/*        LKR 500*/}
+                {/*    </h3>*/}
+                {/*    <button*/}
+                {/*        className="bg-gradient-to-r from-amber-950 to-blue-500 h-[50px] w-[370px] rounded-2xl cursor-pointer hover:scale-105 transition duration-300 hover:shadow-cyan-300">*/}
+                {/*        Add to cart*/}
+                {/*    </button>*/}
+
+                {/*</div>*/}
+
+
+            </div>
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="bg-[#2d2d2d] text-white !py-16 !px-8 mt-auto">
+        <footer className="bg-gradient-to-r from-blue-900 to-blue-600 text-white !py-16 !px-8 mt-auto">
             <div className=" max-w-[98vw] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#444]">
                 {/* About Us Section */}
                 <div className="!px-4">
