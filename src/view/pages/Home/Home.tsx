@@ -1,11 +1,16 @@
 
 import {useEffect, useState} from "react";
 import {Product} from "../../common/Product/Product.tsx";
-
+type ProductData = {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+}
 
 export function Home() {
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<ProductData[]>([]);
 
 
     useEffect(
@@ -23,7 +28,7 @@ export function Home() {
 
 
             }
-            fetchData();
+            fetchData()
         } , []
     )
 
@@ -33,7 +38,7 @@ export function Home() {
 
                 {
                     products.map((product) => (
-                        <Product data={product}/>
+                        <Product key={product.id} data={product}/>
                     ))
                 }
 
