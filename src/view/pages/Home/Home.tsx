@@ -2,9 +2,10 @@
 import {useEffect, useState} from "react";
 import {Product} from "../../common/Product/Product.tsx";
 type ProductData = {
-    id: number;
+    id: string;
     name: string;
     price: number;
+    currency: string;
     image: string;
 }
 

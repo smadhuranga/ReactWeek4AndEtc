@@ -8,6 +8,7 @@ type ProductData = {
     currency: string;
     image: string;
 };
+
 type ProductProps = {
     data: ProductData;
 };

@@ -5,9 +5,9 @@ interface ShoppingCartProps {
 
 }
 
-export function ShoppingCart({itemList} : ShoppingCartProps) {
+export function ShoppingCart({itemList}: ShoppingCartProps) {
     return (
-        <div className="flex justify-center items-center px-4 ">
+        <div className="flex justify-center items-center px-4  py-18 w-full ">
             <div className="w-full max-w-screen-2xl border border-green-200
             ">
                 <table className="min-w-full border-collapse">
@@ -25,19 +25,17 @@ export function ShoppingCart({itemList} : ShoppingCartProps) {
                     {
                         itemList.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="text-center py-4">No items in the cart</td>
+                                <td colSpan={5} className="text-center py-4 text-orange-400">No items in the cart</td>
                             </tr>
                         ) : (
                             itemList.map((item, index) => (
                                     <tr key={item.product.id}
-                                        className={`${index % 2 === 0 ? "bg-green-100 " : "bg-green-200"} hover:bg-green-300 border border-green-300`}>
-                                        <td>{item.product.id}</td>
-                                        <td>{item.product.name}</td>
-                                        <td>{item.product.price} {item.product.currency}</td>
-                                        <td>
-                                            {item.itemCount}
-                                        </td>
-                                        <td>{item.itemCount * item.product.price} {item.product.currency}</td>
+                                        className={`${index % 2 === 0 ? "bg-green-600 " : "bg-green-800"} hover:bg-green-300 border border-green-300 h-3`}>
+                                        <td className="text-xs font-semibold border border-green-600 p-2">{item.product.id}</td>
+                                        <td className="text-xs font-semibold border border-green-600 p-2">{item.product.name}</td>
+                                        <td className="text-xs font-semibold border border-green-600 p-2">{item.product.price} {item.product.currency}</td>
+                                        <td className="text-xs font-semibold border border-green-600 p-2">{item.itemCount}</td>
+                                        <td className="text-xs font-semibold border border-green-600 p-2">{item.itemCount * item.product.price} {item.product.currency}</td>
 
 
                                     </tr>
