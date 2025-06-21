@@ -11,25 +11,32 @@ type ProductData = {
 
 export function Home() {
 
-    const [products, setProducts] = useState<ProductData[]>([]);
+
+
+    // const [products, setProducts] = useState<ProductData[]>([]);
 
 
     useEffect(
         () => {
-            const fetchData = async ()=>{
-              try {
-                  const response =  await fetch('./product-data.json')
-                  const jsonData = await response.json();
-                  // console.log(jsonData);
-                  setProducts(jsonData);
-                  console.log(products)
-              }catch (error) {
-                  console.error("Error fetching data: ", error);
-              }
 
 
-            }
-            fetchData()
+
+
+
+            // const fetchData = async ()=>{
+            //   try {
+            //       const response =  await fetch('./product-data.json')
+            //       const jsonData = await response.json();
+            //       // console.log(jsonData);
+            //       setProducts(jsonData);
+            //       console.log(products)
+            //   }catch (error) {
+            //       console.error("Error fetching data: ", error);
+            //   }
+            //
+            //
+            // }
+            // fetchData()
         } , []
     )
 
