@@ -1,54 +1,140 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Learning Journey: Beyond 🚀
 
-Currently, two official plugins are available:
+![React Banner](https://user-images.githubusercontent.com/26399680/127779530-6a7c3288-5e3b-4b5b-8a2f-76a4e0c5d1b1.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Welcome to my React learning repository! This collection contains my progress through React concepts from Week 4 onward, featuring modern React patterns, hooks, state management, and practical component implementations. Perfect for fellow learners and developers looking for real-world examples.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```jsx
+// Sample component from this repository
+const InteractiveCard = ({ title, children }) => {
+  const [isActive, setIsActive] = useState(false);
+  
+  return (
+    <div 
+      className={`card ${isActive ? 'active' : ''}`}
+      onClick={() => setIsActive(!isActive)}
+    >
+      <h3>{title}</h3>
+      {isActive && <div className="content">{children}</div>}
+    </div>
+  );
+};
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Featured Projects
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. **Dynamic Form Builder**
+![Form Builder Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2s2d3c0eTRzYXZzcWp4cGt1cWZ4Y3NpM2xrZ2QxN3RlM2U2c2R2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qE1gZJgF3X7XQZq/giphy.gif)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+**Key Features:**
+- Dynamic field generation with validation
+- State management using custom hooks
+- Form data persistence with localStorage
+
+### 2. **Theme Switcher with Context API**
+![Theme Switcher](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3Q5dXl6bTQ1aG9tY3p3bGJ6c2Y5dW1rZ2ZqZzZ0bGZ4bmN6dGZ5ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qE1gZJgF3X7XQZq/giphy.gif)
+
+**Key Concepts:**
+- Global state management with Context
+- Custom `useTheme` hook
+- CSS variables for theme switching
+
+### 3. **API Data Fetcher**
+```jsx
+// Custom hook implementation
+const useApiData = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
 ```
+
+## 🧠 Key Concepts Covered
+
+| Concept | Implementation Example | Path |
+|---------|------------------------|------|
+| **Advanced Hooks** | useReducer, useMemo, useCallback | `/hooks-demo` |
+| **Context API** | Global state management | `/theme-context` |
+| **Component Patterns** | Compound components, Render props | `/component-patterns` |
+| **Performance** | Memoization, Code splitting | `/performance` |
+| **Forms** | Formik integration, Validation | `/forms` |
+
+## 🚀 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/smadhuranga/ReactWeek4AndEtc.git
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run any demo project:**
+   ```bash
+   cd path/to/project
+   npm start
+   ```
+
+## 🧩 Project Structure
+
+```
+ReactWeek4AndEtc/
+├── week4/
+│   ├── advanced-hooks/
+│   ├── context-api-demo/
+│   └── form-validation/
+├── week5/
+│   ├── api-integration/
+│   ├── performance-optimization/
+│   └── routing-demo/
+├── utilities/
+│   ├── custom-hooks/
+│   └── helper-functions/
+└── README.md
+```
+
+## 💡 Learning Resources
+
+- [React Official Documentation](https://reactjs.org/docs/getting-started.html)
+- [React Patterns](https://reactpatterns.com/)
+- [useHooks](https://usehooks.com/) - Collection of modern hooks
+- [Epic React](https://epicreact.dev/) - Advanced React patterns
+
+## 🤝 Contribution
+
+Found an interesting way to improve these examples? Contributions are welcome!
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Happy Coding!** 🎉  
+Let's connect on [GitHub](https://github.com/smadhuranga) and build amazing things together!
