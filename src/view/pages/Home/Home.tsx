@@ -1,16 +1,15 @@
-
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {Product} from "../../common/Product/Product.tsx";
-type ProductData = {
-    id: string;
-    name: string;
-    price: number;
-    currency: string;
-    image: string;
-}
+import {useDispatch, useSelector} from "react-redux";
+import {getAllProducts} from "../../../slice/productSlice.ts";
+import type {AppDispatch} from '../../../store/store.ts';
+import type {RootState} from "../../../store/store.ts";
+
 
 export function Home() {
 
+    const dispatch = useDispatch<AppDispatch>();
+    const {list} = useSelector((state: RootState) => state.products);
 
 
     // const [products, setProducts] = useState<ProductData[]>([]);
@@ -18,11 +17,7 @@ export function Home() {
 
     useEffect(
         () => {
-
-
-
-
-
+            dispatch(getAllProducts());
             // const fetchData = async ()=>{
             //   try {
             //       const response =  await fetch('./product-data.json')
@@ -37,7 +32,7 @@ export function Home() {
             //
             // }
             // fetchData()
-        } , []
+        }, []
     )
 
     return (
@@ -45,7 +40,7 @@ export function Home() {
             <div className=" flex  flex-wrap ml-[1px] mt-5 mb-5 justify-center items-center gap-4">
 
                 {
-                    products.map((product) => (
+                    list.map((product) => (
                         <Product key={product.id} data={product}/>
                     ))
                 }

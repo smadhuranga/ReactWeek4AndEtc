@@ -1,29 +1,36 @@
 import {useState} from "react";
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
+import type {ProductData} from "../../../model/ProductData.ts";
+import {useDispatch} from "react-redux";
+import type {AppDispatch} from "../../../store/store.ts";
+import {addItemToCart} from "../../../slice/cartSlice.ts";
 
-type ProductData = {
-    id: string;
-    name: string;
-    price: number;
-    currency: string;
-    image: string;
-};
+// type ProductData = {
+//     id: string;
+//     name: string;
+//     price: number;
+//     currency: string;
+//     image: string;
+// };
 
 type ProductProps = {
     data: ProductData;
 };
 
-const images:Record<string, string> = import.meta.glob('../../../assets/products/*',{  eager: true, import: 'default'});
+const images: Record<string, string> = import.meta.glob('../../../assets/products/*', {eager: true, import: 'default'});
 
 
-export function Product({ data }: ProductProps) {
+export function Product({data}: ProductProps) {
     console.log(images)
+
+    const dispatch = useDispatch<AppDispatch>();
 
     const [isActive, setIsActive] = useState(false);
 
 
     const addToCart = () => {
-       setIsActive(true)
+        dispatch(addItemToCart(data))
+        setIsActive(true)
 
     };
 
@@ -32,7 +39,8 @@ export function Product({ data }: ProductProps) {
             <div
                 className="w-110 h-112 bg-blue-900 mr-2 mb-2 flex flex-col items-center border-1 rounded-2xl ">
                 <div>
-                    <img className="h-[200px] w-[165px] !m-8" src={images[`../../../assets/products/${data.image}`]} alt=""/>
+                    <img className="h-[200px] w-[165px] !m-8" src={images[`../../../assets/products/${data.image}`]}
+                         alt=""/>
                 </div>
                 <h2>
                     {data.name}
@@ -43,9 +51,9 @@ export function Product({ data }: ProductProps) {
                 </h3>
                 {
                     isActive ?
-                       (<ModifyCart  data={{
-                           product: data
-                       }}/>)
+                        (<ModifyCart data={{
+                            product: data
+                        }}/>)
                         :
                         <button
                             className="bg-gradient-to-r from-amber-950 to-blue-500 h-[50px] w-[370px] rounded-2xl cursor-pointer hover:scale-105 transition duration-300 hover:shadow-cyan-300"

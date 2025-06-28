@@ -5,9 +5,10 @@
  * @description
  */
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import type {ProductData} from "../model/ProductData.ts";
 
 interface ProductSlice {
-    list: [],
+    list: ProductData[],
     error: string | null | undefined
 }
 
