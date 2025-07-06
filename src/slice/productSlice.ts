@@ -6,6 +6,7 @@
  */
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import type {ProductData} from "../model/ProductData.ts";
+import {backendApi} from "../api.ts";
 
 interface ProductSlice {
     list: ProductData[],
@@ -20,8 +21,10 @@ const initialState: ProductSlice = {
 export const getAllProducts = createAsyncThunk(
     'prduct/getallProducts',
     async () => {
-        const response = await fetch('./product-data.json');
-        return await response.json();
+        // const response = await fetch('./product-data.json');
+        // return await response.json();
+       const response = await backendApi.get('/products/all');
+       return await response.data
     }
 
 )
@@ -31,10 +34,11 @@ const productSlice = createSlice({
     initialState: initialState,
     reducers: {},
      extraReducers: (builder) => {
-        builder.addCase(getAllProducts.pending, (state) => {
+        builder.addCase(getAllProducts.pending, () => {
             console.log("pending")
         })
         .addCase(getAllProducts.fulfilled, (state, action) => {
+            console.log(action.payload)
             state.list = action.payload;
             console.log("fulfilled")
         })

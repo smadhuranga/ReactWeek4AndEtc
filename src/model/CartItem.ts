@@ -5,7 +5,7 @@
  * @description
  */
 
-export interface CartItme {
+export interface CartItem {
     product: any,
     itemCount: number
 }
